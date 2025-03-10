@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Star Wars Adventure - {{ scene.title }}{% endblock %}
+
+{% block extra_head %}
+<style>
+    body {
+        background-image: url("{{ scene.background }}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="scene">
+    <h1 class="scene-title">{{ scene.title }}</h1>
+
+    <div class="scene-description">
+        {% for paragraph in scene.description %}
+        <p class="scene-text">{{ paragraph }}</p>
+        {% endfor %}
+    </div>
+
+    <div class="choices-container mt-5">
+        <h3 class="choices-title">What will you do?</h3>
+
+        <form action="{{ url_for('make_choice', scene_id=request.path.split('/')[-1]) }}" method="post">
+            <div class="choices-list">
+                {% for i, choice in enumerate(scene.choices, 1) %}
+                <div class="choice-item">
+                    <input type="radio" name="choice" id="choice{{ i }}" value="{{ i }}" class="choice-radio" required>
+                    <label for="choice{{ i }}" class="choice-label">
+                        <span class="choice-number">{{ i }}</span>
+                        <span class="choice-text">{{ choice.text }}</span>
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">Continue</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Add typewriter effect to scene text
+    document.addEventListener('DOMContentLoaded', function () {
+        const paragraphs = document.querySelectorAll('.scene-text');
+
+        function typeWriter(element, text, i, callback) {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(function () {
+                    typeWriter(element, text, i, callback);
+                }, 20);
+            } else if (callback) {
+                setTimeout(callback, 500);
+            }
+        }
+
+        function animateText(index) {
+            if (index < paragraphs.length) {
+                const paragraph = paragraphs[index];
+                const text = paragraph.textContent;
+                paragraph.textContent = '';
+
+                typeWriter(paragraph, text, 0, function () {
+                    animateText(index + 1);
+                });
+            }
+        }
+
+        animateText(0);
+    });
+
+    // Add selection effect to choice items
+    document.addEventListener('DOMContentLoaded', function () {
+        const radioButtons = document.querySelectorAll('.choice-radio');
+
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function () {
+                // Remove selected class from all choices
+                document.querySelectorAll('.choice-item').forEach(item => {
+                    item.classList.remove('selected');
+                });
+
+                // Add selected class to the chosen item
+                if (this.checked) {
+                    this.closest('.choice-item').classList.add('selected');
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

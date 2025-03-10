@@ -1,0 +1,312 @@
+/* Star Wars Adventure Game Styles */
+
+/* Base Styles */
+:root {
+  --primary-color: #ffe81f; /* Star Wars yellow */
+  --secondary-color: #0b60ab; /* Lightsaber blue */
+  --dark-color: #000000;
+  --light-color: #ffffff;
+  --accent-color: #e51b20; /* Sith red */
+  --background-color: #121212;
+  --box-bg-color: rgba(0, 0, 0, 0.8);
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  background-color: var(--background-color);
+  color: var(--light-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Star Wars Background Effect */
+.stars,
+.twinkling {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+.stars {
+  background: #000 url("../images/stars.png") repeat top center;
+}
+
+.twinkling {
+  background: transparent url("../images/twinkling.png") repeat top center;
+  animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+/* Content Box */
+.content-box {
+  background-color: var(--box-bg-color);
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px 0;
+  box-shadow: 0 0 20px rgba(255, 232, 31, 0.3);
+  border: 1px solid rgba(255, 232, 31, 0.2);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.adventure-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(255, 232, 31, 0.7);
+}
+
+.scene-title {
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.choices-title {
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--light-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--dark-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 232, 31, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--dark-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--primary-color);
+  color: var(--dark-color);
+}
+
+.start-btn {
+  font-size: 1.2rem;
+  padding: 15px 30px;
+}
+
+/* Character Selection */
+.character-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.character-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 232, 31, 0.3);
+  border-color: var(--primary-color);
+}
+
+.character-card.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(255, 232, 31, 0.5);
+}
+
+.character-radio {
+  position: absolute;
+  opacity: 0;
+}
+
+.character-label {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.character-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.character-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.character-card:hover .character-image img {
+  transform: scale(1.05);
+}
+
+.character-info {
+  padding: 15px;
+}
+
+.character-info h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+/* Scene Styles */
+.scene-description {
+  margin-bottom: 30px;
+}
+
+.scene-text {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+/* Choices */
+.choices-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.choice-item {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 232, 31, 0.3);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.choice-item:hover,
+.choice-item.selected {
+  background-color: rgba(11, 96, 171, 0.3);
+  border-color: var(--secondary-color);
+  transform: translateX(5px);
+}
+
+.choice-radio {
+  position: absolute;
+  opacity: 0;
+}
+
+.choice-label {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.choice-number {
+  background-color: var(--secondary-color);
+  color: var(--light-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.choice-text {
+  flex: 1;
+}
+
+/* Game Over */
+.ending-container {
+  perspective: 400px;
+  height: 300px;
+  overflow: hidden;
+  margin: 30px 0;
+}
+
+.ending-scroll {
+  position: relative;
+  top: 0;
+  transform-origin: 50% 100%;
+}
+
+.ending-text {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+@keyframes scroll {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .adventure-title {
+    font-size: 1.8rem;
+  }
+
+  .character-image {
+    height: 150px;
+  }
+
+  .scene-text {
+    font-size: 1rem;
+  }
+
+  .ending-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Intro Text */
+.intro-text {
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.crawl-text {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-style: italic;
+}

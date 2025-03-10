@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Star Wars Adventure - Game Over{% endblock %}
+
+{% block content %}
+<div class="game-over text-center">
+    <h1 class="mb-4">The End of Your Journey</h1>
+
+    <div class="ending-container">
+        <div class="ending-scroll">
+            <p class="ending-text">{{ ending }}</p>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg me-3">Play Again</a>
+        <a href="{{ url_for('character_select') }}" class="btn btn-secondary btn-lg">Choose Different Character</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Add Star Wars style scrolling text effect
+    document.addEventListener('DOMContentLoaded', function () {
+        const endingText = document.querySelector('.ending-text');
+        endingText.style.transform = 'perspective(300px) rotateX(25deg)';
+        endingText.style.animation = 'scroll 60s linear';
+    });
+</script>
+{% endblock %}

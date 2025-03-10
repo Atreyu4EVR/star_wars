@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Star Wars Adventure - Welcome{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <div class="logo-container mb-4">
+        <img src="{{ url_for('static', filename='images/star_wars_logo.png') }}" alt="Star Wars Logo" class="img-fluid">
+    </div>
+
+    <h1 class="adventure-title">CHOOSE YOUR OWN ADVENTURE</h1>
+
+    <div class="intro-text">
+        <p class="crawl-text">A long time ago in a galaxy far, far away...</p>
+        <p>The galaxy is in turmoil. The Empire's grip tightens across star systems, while the Rebellion fights for
+            freedom.
+            Jedi are hunted to near extinction, and bounty hunters thrive in the chaos.</p>
+        <p>Your choices will determine your path in this epic adventure. Will you fight for justice,
+            seek personal gain, or chart your own course among the stars?</p>
+    </div>
+
+    <div class="mt-5">
+        <a href="{{ url_for('character_select') }}" class="btn btn-primary btn-lg start-btn">BEGIN YOUR JOURNEY</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Add typewriter effect to the crawl text
+    document.addEventListener('DOMContentLoaded', function () {
+        const text = document.querySelector('.crawl-text');
+        const originalText = text.textContent;
+        text.textContent = '';
+
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                text.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        setTimeout(typeWriter, 500);
+    });
+</script>
+{% endblock %}
