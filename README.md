@@ -1,77 +1,35 @@
-# Star Wars Adventure Game
+# Star Wars: Choose Your Own Adventure Game
 
-A "Choose Your Own Adventure" web application set in the Star Wars universe, built with Python and Flask.
+This repository contains a fun "choose your own adventure" style game set in the Star Wars universe. The game is written in Python using the Flask web framework.
+
+## Purpose
+
+This project is designed as a teaching tool for computer science students. It demonstrates how AI coding agents can be leveraged to quickly develop web applications with minimal manual effort. By exploring this repo, students can see a practical example of combining Python, Flask, and AI-assisted development.
 
 ## Features
+- Interactive, web-based storytelling
+- Choices that branch the story in different directions
+- Simple, easy-to-understand codebase ideal for beginners
 
-- Interactive storytelling with multiple branching paths
-- Three character paths: Jedi Padawan, Rebel Pilot, and Bounty Hunter
-- Star Wars themed UI with animations and sound effects
-- Responsive design that works on desktop and mobile devices
+## Getting Started
 
-## Prerequisites
-
-- Python 3.7 or higher
-- Flask
-
-## Installation
-
-1. Clone this repository or download the source code.
-
-2. Create a virtual environment (recommended):
-
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/star-wars-adventure.git
+   cd star-wars-adventure
    ```
-   python -m venv venv
-   ```
-
-3. Activate the virtual environment:
-
-   - On Windows:
-     ```
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```
-     source venv/bin/activate
-     ```
-
-4. Install the required dependencies:
-   ```
+2. Install the requirements:
+   ```bash
    pip install -r requirements.txt
    ```
-
-## Running the Application
-
-1. Make sure your virtual environment is activated.
-
-2. Start the Flask development server:
-
-   ```
+3. Run the game:
+   ```bash
    python app.py
    ```
-
-3. Open your web browser and navigate to:
-   ```
-   http://127.0.0.1:5000/
-   ```
-
-## Project Structure
-
-- `app.py` - The main Flask application
-- `game_data.py` - Contains all the game content and story paths
-- `star_wars_adventure.py` - The original command-line version of the game
-- `templates/` - HTML templates for the web interface
-- `static/` - Static files (CSS, JavaScript, images, sounds)
-
-## Adding Content
-
-To add more story paths or modify existing ones, edit the `game_data.py` file. The game data is structured as a dictionary with scenes and choices.
-
-## Credits
-
-- Star Wars and all related characters, locations, and concepts are the property of Lucasfilm Ltd. and Disney.
-- This is a fan project created for educational purposes.
+4. Open your browser and navigate to `http://127.0.0.1:5000` to play!
 
 ## License
+This project is for educational purposes.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
+Feel free to fork, modify, and use this project in your own classes or learning journey!
