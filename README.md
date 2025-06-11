@@ -1,27 +1,20 @@
-# Star Wars Adventure Game
+# Star Wars Repository
 
-A fun, interactive "choose your own adventure" game inspired by Star Wars! This project is written in Python using Flask to create a simple web application. It is designed as an educational tool to show computer science students how AI coding agents can help you quickly spin up web applications with minimal effort.
+This repository contains code and documentation related to Star Wars-themed projects. Explore code samples, data, and more inspired by the Star Wars universe.
 
-## Features
-- Choose your own path through an original Star Wars themed adventure.
-- Simple Flask web interface.
-- Example of rapid prototyping with AI-assisted coding.
+## Contents
+- Star Wars API integration
+- Character data analysis
+- Themed project templates
 
 ## Getting Started
+Clone the repository and follow instructions in each subfolder to run the various Star Wars projects.
 
-To run this project locally:
-
-```bash
-git clone https://github.com/Atreyu4EVR/star_wars.git
-cd star_wars
-pip install -r requirements.txt
-python app.py
-```
-
-Then visit `http://localhost:5000` in your browser to play the game.
-
-## Purpose
-This repository demonstrates how AI coding agents (like GitHub Copilot, ChatGPT, and others) can be used to quickly generate web applications, making it easier for students and developers to experiment and learn.
+## Contributing
+Feel free to open issues or submit pull requests for improvements or new features.
 
 ## License
-Feel free to fork, modify, and use this project for educational or personal purposes!
+MIT License
+
+---
+May the Force be with you!
